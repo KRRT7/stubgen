@@ -10,7 +10,7 @@ from pathlib import Path
 
 import pytest
 
-from nuitka_stubgen import generate_stub
+from stubgen import generate_stub
 from tests.support.ast_compare import compare_asts
 
 CASES_ROOT = Path(__file__).parent / "fixtures" / "cases"

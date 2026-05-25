@@ -8,7 +8,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from nuitka_stubgen import generate_stub
+from stubgen import generate_stub
 
 FIXTURES_ROOT = Path(__file__).resolve().parent.parent / "fixtures" / "cases" / "libcst"
 

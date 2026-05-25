@@ -10,8 +10,8 @@ from importlib import metadata
 from pathlib import Path
 from typing import Iterable
 
-from nuitka_stubgen import generate_stub
-from nuitka_stubgen.generation.validate import check_name_parity, has_live_body, roundtrip, walk_bodies
+from stubgen import generate_stub
+from stubgen.generation.validate import check_name_parity, has_live_body, roundtrip, walk_bodies
 
 IGNORED_DIRS = {
     ".eggs",

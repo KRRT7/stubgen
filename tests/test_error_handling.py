@@ -4,13 +4,10 @@ Covers edge cases where ``generate_stub`` receives malformed or unusual
 input: syntax errors, non-Python content, BOM, and ``# coding:`` declarations.
 """
 
-from pathlib import Path
-from unittest.mock import patch
-
 import libcst
 import pytest
 
-from nuitka_stubgen import generate_stub
+from stubgen import generate_stub
 
 
 class TestSyntaxErrors:
@@ -66,46 +63,3 @@ class TestCodingDeclarations:
         assert "def f()" in result
 
 
-class TestFallback:
-    """Verifies the vendored AST-based stubgen fallback works."""
-
-    def test_fallback_produces_valid_stub(self) -> None:
-        from nuitka_stubgen.generation.core import fallback_generate
-
-        source = "def f(x: int) -> str: return str(x)"
-        result = fallback_generate(source)
-        assert result is not None
-        assert "def f(x: int) -> str: ..." in result
-        assert result.startswith("from __future__ import annotations")
-
-    def test_fallback_returns_none_on_invalid_input(self) -> None:
-        from nuitka_stubgen.generation.core import fallback_generate
-
-        result = fallback_generate("def broken(:")
-        assert result is None
-
-
-class TestFallbackPaths:
-    """Edge cases in the libcst→vendored fallback pipeline."""
-
-    def test_load_vendored_fails_on_missing_file(self) -> None:
-        import importlib.util
-
-        from nuitka_stubgen.generation import core
-
-        with patch.object(importlib.util, "spec_from_file_location", return_value=None):
-            result = core.load_vendored_stubgen()
-            assert result is None
-
-    def test_generate_stub_fallback_success(self) -> None:
-        with patch("libcst.parse_module", side_effect=Exception("libcst failed")):
-            result = generate_stub("def f(x: int) -> str: return str(x)\n")
-            assert result is not None
-            assert "def f(x: int) -> str: ..." in result
-
-    def test_fallback_generate_stubgen_not_module(self) -> None:
-        from nuitka_stubgen.generation import core
-
-        with patch.object(core, "load_vendored_stubgen", return_value="not a module"):
-            result = core.fallback_generate("def f() -> None: pass\n")
-            assert result is None

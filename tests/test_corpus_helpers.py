@@ -5,7 +5,7 @@ from __future__ import annotations
 import ast
 from pathlib import Path
 
-from nuitka_stubgen.generation.validate import has_live_body, roundtrip
+from stubgen.generation.validate import has_live_body, roundtrip
 
 from .support.corpus import (
     CorpusFailure,

@@ -1,4 +1,4 @@
-"""CLI entry point for nuitka-stubgen."""
+"""CLI entry point for stubgen."""
 
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ from . import write_stub
 def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:  # noqa: UP006, UP045
     """Parse CLI arguments and return the populated namespace."""
     parser = argparse.ArgumentParser(
-        prog="nuitka-stubgen",
+        prog="stubgen",
         description="Generate a .pyi stub file from a Python source file.",
     )
     parser.add_argument("source", help="Path to the Python source file.")

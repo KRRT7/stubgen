@@ -1,5 +1,5 @@
 [project]
-name = "nuitka-stubgen"
+name = "stubgen"
 version = "0.1.0"
 license = "MIT"
 requires-python = ">=3.9"
@@ -26,7 +26,7 @@ Repository = "https://github.com/Nuitka/Nuitka-Stubgen"
 Issues = "https://github.com/Nuitka/Nuitka-Stubgen/issues"
 
 [project.scripts]
-nuitka-stubgen = "nuitka_stubgen.cli:main"
+stubgen = "stubgen.cli:main"
 
 [build-system]
 requires = ["uv_build>=0.7.2,<0.8"]
@@ -50,8 +50,6 @@ dev = [
 include = ["src", "tests"]
 exclude = [
     "tests/fixtures/cases",
-    "tests/test_stubgen_vendored.py",
-    "src/nuitka_stubgen/vendored",
 ]
 [tool.ruff]
 src = ["src"]
@@ -59,7 +57,6 @@ line-length = 120
 target-version = "py39"
 extend-exclude = [
     "tests/fixtures/cases/**",
-    "src/nuitka_stubgen/vendored/**",
 ]
 
 [tool.ruff.lint]
@@ -126,14 +123,10 @@ ignore = [
     "TRY301",
     "RUF100",
 ]
-"tests/run_vendor_py35.py" = ["PTH"]  # keep Python 3.5 compatible; avoid pathlib-only suggestions
-"src/nuitka_stubgen/generation/transform.py" = [
+"src/stubgen/generation/engine.py" = [
     "ARG002",
 ] # LibCST visitor hooks require original_node/node params
-"src/nuitka_stubgen/generation/engine.py" = [
-    "ARG002",
-] # LibCST visitor hooks require original_node/node params
-"src/nuitka_stubgen/generation/support.py" = [
+"src/stubgen/generation/support.py" = [
     "ARG002",
 ] # LibCST visitor hooks require original_node/node params
 

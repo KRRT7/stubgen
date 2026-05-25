@@ -1,4 +1,4 @@
-"""Tests for the nuitka-stubgen CLI."""
+"""Tests for the stubgen CLI."""
 
 from __future__ import annotations
 
@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from nuitka_stubgen.cli import main, parse_args, run
+from stubgen.cli import main, parse_args, run
 
 
 @pytest.fixture()

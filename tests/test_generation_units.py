@@ -5,7 +5,7 @@ from __future__ import annotations
 import libcst as cst
 import libcst.matchers as m
 
-from nuitka_stubgen.generation.support import (
+from stubgen.generation.support import (
     StubImportPruner,
     UsedNamesCollector,
     collect_all_names,
@@ -15,7 +15,7 @@ from nuitka_stubgen.generation.support import (
     import_module_name,
     is_reexport,
 )
-from nuitka_stubgen.generation.validate import compare_asts
+from stubgen.generation.validate import compare_asts
 
 
 def parse_import_from(source: str) -> cst.ImportFrom:
@@ -291,7 +291,7 @@ class TestExtractExportedNames:
 # ---------------------------------------------------------------------------
 
 
-from nuitka_stubgen import generate_stub
+from stubgen import generate_stub
 
 
 def run_pipeline(source: str) -> str:
@@ -488,7 +488,7 @@ class TestTransformTypeVarExport:
 
 import ast
 
-from nuitka_stubgen.generation.validate import check_name_parity, top_level_names
+from stubgen.generation.validate import check_name_parity, top_level_names
 
 
 class TestTopLevelNames:
