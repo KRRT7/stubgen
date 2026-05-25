@@ -27,7 +27,7 @@ jobs:
           - "3.13"
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -56,7 +56,7 @@ jobs:
     name: Golden files up-to-date
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -76,7 +76,7 @@ jobs:
     name: Corpus (real-world packages)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -96,7 +96,7 @@ jobs:
     name: E2E Integration w/ Nuitka
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Set up uv and Python
         uses: astral-sh/setup-uv@v5
@@ -119,7 +119,7 @@ jobs:
           path: vendored_output/
 
       - name: Checkout Nuitka
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: Nuitka/Nuitka
           ref: main
@@ -165,7 +165,7 @@ jobs:
           - "3.8"
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Run legacy fixture tests
         run: >
