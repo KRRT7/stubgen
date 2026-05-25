@@ -1,0 +1,6 @@
+from __future__ import annotations
+from typing import Final
+
+
+MAX: Final = ...
+NAME: Final[str] = ...
