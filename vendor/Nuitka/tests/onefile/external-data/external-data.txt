@@ -1,1 +1,0 @@
-Hello I am test data intended to live alongside created binaries.
