@@ -1,3 +1,0 @@
-[submodule "vendor/Nuitka"]
-	path = vendor/Nuitka
-	url = https://github.com/Nuitka/Nuitka.git
