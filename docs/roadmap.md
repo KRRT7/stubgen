@@ -7,8 +7,10 @@ flowchart TD
         A[Publish to PyPI]
         B[Update URLs & metadata]
         C[Changelog via commitizen]
+        N["GitHub workflows & static analysis\nCI · ruff · ty"]
         B --> A
         C --> A
+        N --> A
     end
 
     subgraph P2["Phase 2 — Correctness"]
@@ -48,6 +50,7 @@ Get the project standing on its own as an independent package.
 | Update URLs & metadata | Replace Nuitka GitHub links in `pyproject.toml` with the real repo |
 | Publish to PyPI | First public release once URLs and metadata are clean |
 | Changelog | `commitizen` is already configured — tag `v0.1.0` and generate `CHANGELOG.md` |
+| GitHub workflows & static analysis | Base CI workflow running `pytest`, `ruff`, and `ty`; release workflow for PyPI publish |
 
 ## Phase 2 — Correctness
 
@@ -61,7 +64,7 @@ Close gaps in what the libcst engine can handle.
 
 ## Phase 3 — CLI / UX
 
-Make the tool ergonomic for rea5l-world use.
+Make the tool ergonomic for real-world use.
 
 | Item | Notes |
 | --- | --- |
