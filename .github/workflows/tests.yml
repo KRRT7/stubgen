@@ -113,7 +113,7 @@ jobs:
           cp -r src/nuitka_stubgen/vendored/stubgen vendored_output/
 
       - name: Upload vendored stub artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: vendored-stub
           path: vendored_output/
