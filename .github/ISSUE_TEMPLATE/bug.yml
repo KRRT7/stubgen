@@ -1,0 +1,66 @@
+name: Bug report
+description: Something stubgen generates incorrectly or crashes on
+labels: ["type-bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Search the [issue tracker](https://github.com/K7Technologies/stubgen/issues) first to check this hasn't already been reported.
+  - type: textarea
+    attributes:
+      label: Input source
+      description: The Python source that triggers the bug. Keep it minimal.
+      value: |
+        ```python
+        # paste source here
+        ```
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Expected stub output
+      description: What `.pyi` output you expected stubgen to produce.
+      value: |
+        ```python
+        # expected .pyi
+        ```
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Actual stub output or error
+      description: What stubgen actually produced or the full traceback.
+      value: |
+        ```python
+        # actual .pyi or traceback
+        ```
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: stubgen version
+      description: "`stubgen --version` or the commit SHA if running from source"
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Python version
+      multiple: false
+      options:
+        - "3.9"
+        - "3.10"
+        - "3.11"
+        - "3.12"
+        - "3.13"
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Operating system
+      multiple: false
+      options:
+        - Linux
+        - macOS
+        - Windows
+    validations:
+      required: false

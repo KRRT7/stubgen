@@ -1,0 +1,37 @@
+name: Feature request
+description: Propose a new feature or enhancement
+labels: ["type-feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check the [roadmap](../docs/roadmap.md) before opening a feature request — if your idea is already planned, a +1 on the relevant issue is more useful than a new one.
+  - type: textarea
+    attributes:
+      label: Problem or use case
+      description: What are you trying to do that stubgen doesn't currently support?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Proposed behavior
+      description: How should stubgen behave? Include example input and expected output if applicable.
+      value: |
+        ```python
+        # example input
+        ```
+
+        ```python
+        # expected .pyi output
+        ```
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Does this align with the roadmap?
+      options:
+        - "Yes — it is listed in the roadmap"
+        - "Partially — it relates to a roadmap item"
+        - "No — it is a new direction"
+    validations:
+      required: true
